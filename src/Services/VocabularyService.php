@@ -2,9 +2,9 @@
 
 namespace Creode\LaravelTaxonomy\Services;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class VocabularyService
 {
@@ -24,7 +24,7 @@ class VocabularyService
         $vocabulary->save();
 
         // Create the new table. (This should be from a stub).
-        $tableName = Str::of($name)->snake() . '_taxonomy_vocabulary';
+        $tableName = Str::of($name)->snake().'_taxonomy_vocabulary';
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
             $table->string('name');
