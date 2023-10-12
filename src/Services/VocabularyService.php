@@ -30,6 +30,7 @@ class VocabularyService
             $table->string('name');
             $table->string('slug');
             $table->integer('parent_id')->nullable;
+            // TODO: Fire an event here to allow you to add new table fields.
             $table->timestamps();
         });
 
