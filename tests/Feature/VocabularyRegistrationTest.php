@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
+
 describe('vocabulary registration', function () {
     it('can register a new vocabulary', function () {
         $service = app(\Creode\LaravelTaxonomy\Services\VocabularyService::class);
@@ -25,5 +27,12 @@ describe('vocabulary registration', function () {
             \Creode\LaravelTaxonomy\Events\VocabularyRegistered::class
         );
     });
-});
 
+    it('creates a new table to hold vocabulary terms', function () {
+        $service = app(\Creode\LaravelTaxonomy\Services\VocabularyService::class);
+
+        $service->register('test', 'Test Vocabulary');
+
+        expect(Schema::hasTable('test_taxonomy_vocabulary'))->toBeTrue();
+    });
+});
