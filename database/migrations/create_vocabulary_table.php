@@ -8,11 +8,10 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('laravel_taxonomy_table', function (Blueprint $table) {
+        Schema::create('vocabularies', function (Blueprint $table) {
             $table->id();
-
-            // add fields
-
+            $table->string('name');
+            $table->text('description');
             $table->timestamps();
         });
     }

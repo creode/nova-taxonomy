@@ -18,8 +18,7 @@ class LaravelTaxonomyServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-taxonomy')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-taxonomy_table')
-            ->hasCommand(LaravelTaxonomyCommand::class);
+            ->hasMigration('create_vocabulary_table')
+            ->runsMigrations();
     }
 }
