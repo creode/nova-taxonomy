@@ -43,9 +43,20 @@ php artisan vendor:publish --tag="laravel-taxonomy-views"
 
 ## Usage
 
+### Register New Taxonomy List
+Adds the ability to register a new taxonomy Vocabulary. This will create a new table in the database to store the terms.
+
 ```php
-$laravelTaxonomy = new Creode\LaravelTaxonomy();
-echo $laravelTaxonomy->echoPhrase('Hello, Creode!');
+use Creode\LaravelTaxonomy\Facades\LaravelTaxonomy;
+
+LaravelTaxonomy::register('test_vocabulary', 'A test vocabulary for taxonomy.');
+```
+
+### Events
+The package fires events when a new vocabulary is create, updated or deleted. You can listen for these events in your application. See [Laravel documentation](https://laravel.com/docs/master/events#writing-event-subscribers) for how to subscribe for events. 
+
+```php
+use Creode\LaravelTaxonomy\Events\VocabularyRegistered;
 ```
 
 ## Testing
